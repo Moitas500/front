@@ -1,0 +1,40 @@
+@import "../../../assets/styles/variables.scss";
+
+.card {
+    width: 300px;
+    margin: auto;
+    margin-top: 20px;
+    background-color: rgb(226, 211, 74);
+}
+
+button{
+    background-color: rgba(54, 139, 179, 0.979);
+    margin-top: 20px;
+}
+
+.boton1{
+    margin-left: 850px;
+}
+
+.boton2{
+    margin-left: 20px;
+}
+
+.header-image {
+    background-size: cover;
+}
+
+.mat-card-header{
+    background-color: $white;
+    padding-top: 10px;
+    border-radius: 10px;
+}
+
+.mat-card-title{
+    text-transform: uppercase;
+    color: $black;
+}
+
+.mat-card-subtitle{
+    color: $black;
+}
