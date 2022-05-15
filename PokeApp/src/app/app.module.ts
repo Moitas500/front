@@ -12,6 +12,7 @@ import { PokeDetailComponent } from './components/poke-detail/poke-detail.compon
 import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './components/footer/footer.component';
 import { CrearComponent } from './components/crear/crear.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -30,6 +31,8 @@ import { CrearComponent } from './components/crear/crear.component';
     BrowserAnimationsModule,
     HttpClientModule,
     FlexLayoutModule,
+    FormsModule,
+    ReactiveFormsModule,
     MaterialModule
   ],
   providers: [],

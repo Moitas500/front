@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { PokemonService } from 'src/app/services/pokemon.service';
 import { Router } from '@angular/router';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-crear',
@@ -8,9 +10,54 @@ import { Router } from '@angular/router';
 })
 export class CrearComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private pokemonService: PokemonService) {
+
+  }
+  tipos = [];
+
+  public id = new FormControl(1.0, Validators.required && Validators.min(1));
+  public nombre = new FormControl('', Validators.required);
+  public peso = new FormControl(0.0, Validators.required && Validators.min(0));
+  public altura = new FormControl(0.0, Validators.required && Validators.min(0));
+  public imagen = new FormControl('', Validators.required);
+  public tipo = new FormControl('', Validators.required);
+
+  public newForm = new FormGroup({
+    id: this.id,
+    nombre: this.nombre,
+    peso: this.peso,
+    altura: this.altura,
+    imagen: this.imagen,
+    tipo: this.tipo,
+  });
 
   ngOnInit(): void {
+    this.pokemonService.getPokemonTipos().subscribe(
+      res => {
+        this.tipos = res;
+      },
+      err => {
+        console.log(err);
+      }
+    )
   }
 
+  public onSubmit() {
+    const pokemon = {
+      id: this.newForm.value.id,
+      nombre: this.newForm.value.nombre,
+      altura: this.newForm.value.altura,
+      peso: this.newForm.value.peso,
+      urlImg: this.newForm.value.imagen,
+      tipo: [{ id: this.newForm.value.tipo }]
+    }
+    this.pokemonService.creadPokemon(pokemon).subscribe(
+      res => {
+        this.router.navigateByUrl('/home')
+      },
+      err => {
+        console.log(err);
+      }
+    )
+  }
 }

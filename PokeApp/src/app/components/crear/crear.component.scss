@@ -1,13 +1,14 @@
 .form{
     position: relative;
-    width: 20rem;
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
     display: flex;
-    margin-left: 780px;
-    margin-top: 15px;
+    margin: auto;
+    margin-top: 29px;
+    margin-bottom: 30px;
 }
+
 input{
     position: relative;
 	display: block;
@@ -15,23 +16,65 @@ input{
 	padding: 0.8em;
 	width: 60%;
 	border: none;
-	border-radius: 0;
-	background: #f0f0f0;
-	color: #aaa;
+	border-radius: 10px;
+	color: #222;
 	font-weight: bold;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	-webkit-appearance: none; 
 }
-.boton{
-    margin-top: 20px;
+
+select{
+	position: relative;
+	display: block;
+	float: right;
+	padding: 0.8em;
+	width: 60%;
+	border: none;
+	border-radius: 10px;
+	color: #222;
+	font-weight: bold;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
+.boton{
+	position: relative;
+	display: block;
+	float: right;
+	padding: 0.8em;
+	width: 60%;
+	border: none;
+	border-radius: 0;
+	font-weight: bold;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	-webkit-appearance: none; 
+	border-radius: 10px;
+    margin-top: 20px;
+	max-width: 190px;
+	transition-duration: 0.4s;
+}
+
+.boton:enabled:hover {
+	color: white;
+	box-shadow: 0px 6px 10px 0px rgb(211 47 47 / 24%), 0px 6px 10px 0px rgb(211 47 47 / 24%);
+}
+
+.boton:enabled:active {
+	background-color: #a31818;
+	transition-duration: 0.05s;
+	box-shadow: none;
+}
+
+.boton:enabled{
+	background-color: #d32f2f;
+	color: white;
+}
+
 label{
     display: inline-block;
-	padding: 0 1em;
-	width: 40%;
-	color: #6a7989;
+	padding: 0 1em 0.5em 1em;
+	color: #2a70b7;
 	font-weight: bold;
-	font-size: 70.25%;
+	font-size: 110%;
 	-webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 	-webkit-touch-callout: none;

@@ -27,12 +27,13 @@ export class PokeDetailComponent implements OnInit {
   }
 
   getPokemon(id) {
-    this.pokemonService.getPokemons(id).subscribe(
+    this.pokemonService.getPokemonId(id).subscribe(
       res => {
-        console.log(res);
+        console.log(res)
+
         this.pokemon = res;
-        this.pokemonImg = this.pokemon.sprites.front_default;
-        this.pokemonType = res.types[0].type.name;
+        this.pokemonImg = this.pokemon.urlImg;
+        this.pokemonType = this.pokemon.tipo[0].nombre;
       },
       err => {
         console.log(err);
