@@ -30,6 +30,18 @@ export class PokeDetailComponent implements OnInit {
     this.router.navigateByUrl(`/actualizar/${id}`)
   }
 
+  eliminar() {
+    this.pokemonService.deletePokemon(this.pokemon).subscribe(
+      res => {
+        alert("Pokemon Nº" + this.pokemon.id + " fue eliminado");
+        this.router.navigateByUrl('/home')
+      },
+      err => {
+        alert("Ocurrio un error:" + err)
+      }
+    )
+  }
+
   getPokemon(id) {
     this.pokemonService.getPokemonId(id).subscribe(
       res => {

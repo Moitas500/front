@@ -1,49 +1,51 @@
-<form class="form" [formGroup]="newForm" (ngSubmit)="onSubmit()">
-    <label>
-        <span class="text-nombre">
-            Id pokemon
-        </span>
-    </label>
-    <input type="number" min="1" formControlName="id" placeholder="Id pokemon">
-    <br>
-    <label>
-        <span class="text-nombre">
-            Nombre del pokemon
-        </span>
-    </label>
-    <input type="text" formControlName="nombre" placeholder="Nombre del pokemon">
-    <br>
-    <label>
-        <span class="text-nombre">
-            Tipo de pokemon
-        </span>
-    </label>
-    <select formControlName="tipo" placeholder="Tipo de pokemon" required>
-        <option *ngFor="let tipo of tipos" [value]="tipo.id">
-            {{tipo.nombre}}
-        </option>
-    </select>
-    <br>
-    <label>
-        <span class="text-nombre">
-            Altura del pokemon
-        </span>
-    </label>
-    <input type="number" step="0.1" min="0" formControlName="altura" placeholder="Altura del pokemon" required>
-    <br>
-    <label>
-        <span class="text-nombre">
-            Peso del pokemon
-        </span>
-    </label>
-    <input type="number" step="0.1" min="0" formControlName="peso" placeholder="Peso del pokemon" required>
-    <br>
-    <label>
-        <span class="text-nombre">
-            Imagen del pokemon
-        </span>
-    </label>
-    <input type="text" formControlName="imagen" placeholder="Imagen del pokemon" required>
+<div class="container">
+    <form class="form" [formGroup]="newForm" (ngSubmit)="onSubmit()">
+        <label>
+            <span class="text-nombre">
+                Id pokemon
+            </span>
+        </label>
+        <input type="number" min="1" formControlName="id" placeholder="Id pokemon">
+        <br>
+        <label>
+            <span class="text-nombre">
+                Nombre del pokemon
+            </span>
+        </label>
+        <input type="text" formControlName="nombre" placeholder="Nombre del pokemon">
+        <br>
+        <label>
+            <span class="text-nombre">
+                Tipo de pokemon
+            </span>
+        </label>
+        <select formControlName="tipo" placeholder="Tipo de pokemon" required>
+            <option *ngFor="let tipo of tipos" [value]="tipo.id">
+                {{tipo.nombre}}
+            </option>
+        </select>
+        <br>
+        <label>
+            <span class="text-nombre">
+                Altura del pokemon
+            </span>
+        </label>
+        <input type="number" step="0.1" min="0" formControlName="altura" placeholder="Altura del pokemon" required>
+        <br>
+        <label>
+            <span class="text-nombre">
+                Peso del pokemon
+            </span>
+        </label>
+        <input type="number" step="0.1" min="0" formControlName="peso" placeholder="Peso del pokemon" required>
+        <br>
+        <label>
+            <span class="text-nombre">
+                Imagen del pokemon
+            </span>
+        </label>
+        <input type="text" formControlName="imagen" placeholder="Imagen del pokemon" required>
     
-    <button type="submit" class="boton" [disabled]="!newForm.valid">Submit</button>
-</form>
+        <button type="submit" class="boton" [disabled]="!newForm.valid">Crear</button>
+        </form>
+</div>

@@ -10,7 +10,6 @@ import { HeaderComponent } from './components/header/header.component';
 import { PokeTableComponent } from './components/poke-table/poke-table.component';
 import { PokeDetailComponent } from './components/poke-detail/poke-detail.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FooterComponent } from './components/footer/footer.component';
 import { CrearComponent } from './components/crear/crear.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActualizarComponent } from './components/actualizar/actualizar.component';
@@ -23,7 +22,6 @@ import { ActualizarComponent } from './components/actualizar/actualizar.componen
     HeaderComponent,
     PokeTableComponent,
     PokeDetailComponent,
-    FooterComponent,
     CrearComponent,
     ActualizarComponent
   ],

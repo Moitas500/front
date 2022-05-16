@@ -1,5 +1,10 @@
 @import "../../../assets/styles/variables.scss";
 
+.container{
+    width: 100%;
+    padding: 5% 0;
+}
+
 .card {
     width: 300px;
     margin: auto;
@@ -12,12 +17,16 @@ button{
     margin-top: 20px;
 }
 
-.boton1{
-    margin-left: 850px;
-}
-
 .boton2{
     margin-left: 20px;
+}
+
+.grupo-botones{
+    position: relative;
+    align-items: center;
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
 }
 
 .header-image {

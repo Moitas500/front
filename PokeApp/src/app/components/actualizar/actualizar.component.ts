@@ -11,37 +11,18 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class ActualizarComponent implements OnInit {
 
   pokemon: any = '';
-  pokemonImg = '';
-  pokemonType = [];
   tipos = [];
-  public id = new FormControl(1.0, Validators.required && Validators.min(1));
-  public nombre = new FormControl('', Validators.required);
-  public peso = new FormControl(0.0, Validators.required && Validators.min(0));
-  public altura = new FormControl(0.0, Validators.required && Validators.min(0));
-  public imagen = new FormControl('', Validators.required);
-  public tipo = new FormControl('', Validators.required);
+  public newForm = new FormGroup({
+    id: new FormControl(1.0, Validators.required && Validators.min(1)),
+    nombre: new FormControl('', Validators.required),
+    peso: new FormControl(0.0, Validators.required && Validators.min(0)),
+    altura: new FormControl(0.0, Validators.required && Validators.min(0)),
+    imagen: new FormControl('', Validators.required),
+    tipo: new FormControl('', Validators.required),
+  });
 
   constructor(private activatedRouter: ActivatedRoute,
     private pokemonService: PokemonService, private router: Router) {
-
-      this.activatedRouter.params.subscribe(
-        params => {
-          this.getPokemon(params['id']);
-        }
-      )
-
-     }
-
-  public newForm = new FormGroup({
-      id: this.id,
-      nombre: this.nombre,
-      peso: this.peso,
-      altura: this.altura,
-      imagen: this.imagen,
-      tipo: this.tipo,
-    });
-
-  ngOnInit(): void {
     this.pokemonService.getPokemonTipos().subscribe(
       res => {
         this.tipos = res;
@@ -50,16 +31,48 @@ export class ActualizarComponent implements OnInit {
         console.log(err);
       }
     )
+
+  }
+
+  ngOnInit(): void {
+    this.activatedRouter.params.subscribe(
+      params => {
+        this.getPokemon(params['id']);
+      }
+    )
+  }
+
+  updatePokemon() {
+    const pokemon = {
+      id: this.newForm.value.id,
+      nombre: this.newForm.value.nombre,
+      altura: this.newForm.value.altura,
+      peso: this.newForm.value.peso,
+      urlImg: this.newForm.value.imagen,
+      tipo: [{ id: this.newForm.value.tipo }]
+    }
+
+    this.pokemonService.updatePokemon(pokemon).subscribe(
+      res => {
+        alert("Pokemon Nº" + pokemon.id + " se actualizo correctamente");
+        this.router.navigateByUrl('/home');
+      },
+      err => {
+        alert("Ocurrio un error:" + err)
+      }
+    )
   }
 
   getPokemon(id) {
     this.pokemonService.getPokemonId(id).subscribe(
       res => {
-        console.log(res)
-
+        this.newForm.get("id").setValue(res.id);
+        this.newForm.get("nombre").setValue(res.nombre);
+        this.newForm.get("peso").setValue(res.peso);
+        this.newForm.get("altura").setValue(res.altura);
+        this.newForm.get("imagen").setValue(res.urlImg);
+        this.newForm.get("tipo").setValue(res.tipo[0].id);
         this.pokemon = res;
-        this.pokemonImg = this.pokemon.urlImg;
-        this.pokemonType = this.pokemon.tipo[0].nombre;
       },
       err => {
         console.log(err);

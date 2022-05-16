@@ -31,7 +31,6 @@ export class PokeTableComponent implements OnInit {
     let pokemonData;
 
     this.pokemonService.getPokemon().subscribe(
-
       res => {
         res.forEach(pokemon => {
           pokemonData = {
@@ -43,38 +42,8 @@ export class PokeTableComponent implements OnInit {
           this.dataSource = new MatTableDataSource<any>(this.data);
           this.dataSource.paginator = this.paginator;
         });
-        // this.data.sort(function (a, b) {
-        //   if (a.position < b.position) {
-        //     return 1;
-        //   }
-        //   if (a.position > b.position) {
-        //     return -1;
-        //   }
-        //   return 0;
-        // });
       }
     )
-
-
-    // for (let i = 1; i <= 150; i++) {
-    //   this.pokemonService.getPokemons(i).subscribe(
-    //     res => {
-    //       pokemonData = {
-    //         position: i,
-    //         image: res.sprites.front_default,
-    //         name: res.name,
-    //       };
-
-    //       this.data.push(pokemonData);
-    //       this.dataSource = new MatTableDataSource<any>(this.data);
-    //       this.dataSource.paginator = this.paginator;
-    //     },
-    //     err => {
-    //       console.log(err);
-    //     }
-    //   );
-    // }
-    // console.log(this.data)
   }
 
   applyFilter(event: Event) {
@@ -85,7 +54,6 @@ export class PokeTableComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-
 
   getRow(row) {
     this.router.navigateByUrl(`/pokeDetail/${row.position}`)

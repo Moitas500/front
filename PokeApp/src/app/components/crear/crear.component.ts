@@ -53,10 +53,11 @@ export class CrearComponent implements OnInit {
     }
     this.pokemonService.creadPokemon(pokemon).subscribe(
       res => {
+        alert("Pokemon Nº" + pokemon.id + " fue registrado correctamente");
         this.router.navigateByUrl('/home')
       },
       err => {
-        console.log(err);
+        alert("Ocurrio un error:" + err)
       }
     )
   }

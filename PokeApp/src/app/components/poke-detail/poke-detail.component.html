@@ -1,21 +1,23 @@
-<mat-card class="card">
-  <mat-card-header>
-    <img mat-card-avatar class="header-image" src="{{pokemonImg}}">
-    <mat-card-title>{{pokemon.nombre}}</mat-card-title>
-    <mat-card-subtitle>Nº {{pokemon.id}}</mat-card-subtitle>
-  </mat-card-header>
+<div class="container">
+  <mat-card class="card">
+    <mat-card-header>
+      <img mat-card-avatar class="header-image" src="{{pokemonImg}}">
+      <mat-card-title>{{pokemon.nombre}}</mat-card-title>
+      <mat-card-subtitle>Nº {{pokemon.id}}</mat-card-subtitle>
+    </mat-card-header>
 
-  <img mat-card-image src="{{pokemonImg}}" alt="pokemon">
+    <img mat-card-image src="{{pokemonImg}}" alt="pokemon">
+    <mat-card-content>
+      <mat-chip-list>
+        <mat-chip color="primary">Tipo: {{pokemonType}}</mat-chip>
+        <mat-chip color="primary">Altura: {{pokemon.altura}}</mat-chip>
+        <mat-chip color="primary">Peso: {{pokemon.peso}}</mat-chip>
+      </mat-chip-list>
+    </mat-card-content>
 
-  <mat-card-content>
-    <mat-chip-list>
-      <mat-chip color="primary">Tipo: {{pokemonType}}</mat-chip>
-      <mat-chip color="primary">Altura: {{pokemon.altura}}</mat-chip>
-      <mat-chip color="primary">Peso: {{pokemon.peso}}</mat-chip>
-    </mat-chip-list>
-  </mat-card-content>
-
-</mat-card>
-
-<button mat-button class="boton1" (click)="actualizar(pokemon.id)">Actualizar</button>
-<button mat-button class="boton2">Eliminar</button>
+  </mat-card>
+  <div class="grupo-botones">
+    <button mat-button class="boton1" (click)="actualizar(pokemon.id)">Actualizar</button>
+    <button mat-button class="boton2" (click)="eliminar()">Eliminar</button>
+    </div>
+    </div>
