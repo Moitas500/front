@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './components/footer/footer.component';
 import { CrearComponent } from './components/crear/crear.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ActualizarComponent } from './components/actualizar/actualizar.component';
 
 
 
@@ -23,7 +24,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PokeTableComponent,
     PokeDetailComponent,
     FooterComponent,
-    CrearComponent
+    CrearComponent,
+    ActualizarComponent
   ],
   imports: [
     BrowserModule,
